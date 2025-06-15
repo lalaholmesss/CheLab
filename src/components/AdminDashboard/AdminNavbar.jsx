@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export default function AdminNavbar() {
     return(
         <nav>
-            <div className="flex flex-col h-full fixed top-0 bottom-0 px-[40px] py-[36px]">
+            <div className="flex flex-col h-100vh fixed top-0 bottom-0 px-[40px] py-[36px] bg-white">
                 <div><h1 className="text-[26px] font-semibold">Dashboard v.1</h1></div>
                 <div className="flex flex-col items-left pt-[64px]">
                     <ul className="flex flex-col gap-[40px]">

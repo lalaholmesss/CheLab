@@ -38,51 +38,55 @@ export default function Requests() {
   };
 
   return (
-    <div className="ml-64 p-6"> {/* Adjusts for fixed navbar width */}
-      <h2 className="text-2xl font-bold mb-6">All Requests</h2>
+<div className="p-[]">
+  <div className="ml-80 p-6 bg-white p-[40px] rounded-[24px] block w-[860px]">
+    <h2 className="text-2xl font-bold mb-6">All Requests</h2>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-300 table-auto">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="border px-4 py-2 text-left">Submitter Name</th>
-              <th className="border px-4 py-2 text-left">Email</th>
-              <th className="border px-4 py-2 text-left">Title</th>
-              <th className="border px-4 py-2 text-left">Description</th>
-              <th className="border px-4 py-2 text-left">Status</th>
+    <div className="overflow-x-auto">
+      <table className=" table-auto">
+        <thead>
+          <tr className="border-t text-[#9197B3] text-[14px] border-b border-gray-300 font-normal ">
+            <th className="px-4 py-2 text-left font-medium">Submitter Name</th>
+            <th className="px-4 py-2 text-left font-medium">Email</th>
+            <th className="px-4 py-2 text-left font-medium">Title</th>
+            <th className="px-4 py-2 text-left font-medium">Description</th>
+            <th className="px-4 py-2 text-left font-medium">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {requests.map((req) => (
+            <tr
+              key={req.id}
+              className="border-b border-gray-200 hover:bg-gray-50 text-[14px]"
+            >
+              <td className="px-4 py-2">{req.name}</td>
+              <td className="px-4 py-2">{req.email}</td>
+              <td className="px-4 py-2">{req.title}</td>
+              <td className="px-4 py-2">{req.description}</td>
+              <td className="px-4 py-2">
+  <select
+    value={req.status}
+    onChange={(e) => handleStatusChange(req.id, e.target.value)}
+    className={`px-2 py-1 rounded-[8px] border text-[14px] bg-white ${
+      req.status === "Pending"
+        ? "text-yellow-700"
+        : req.status === "Accepted"
+        ? "text-green-700"
+        : "text-red-700"
+    }`}
+  >
+    <option value="Pending" className="text-yellow-700">Pending</option>
+    <option value="Accepted" className="text-green-700">Accepted</option>
+    <option value="Rejected" className="text-red-700">Rejected</option>
+  </select>
+</td>
+
             </tr>
-          </thead>
-          <tbody>
-            {requests.map((req) => (
-              <tr key={req.id}>
-                <td className="border px-4 py-2">{req.name}</td>
-                <td className="border px-4 py-2">{req.email}</td>
-                <td className="border px-4 py-2">{req.title}</td>
-                <td className="border px-4 py-2">{req.description}</td>
-                <td className="border px-4 py-2">
-                  <select
-                    value={req.status}
-                    onChange={(e) =>
-                      handleStatusChange(req.id, e.target.value)
-                    }
-                    className={`px-2 py-1 rounded border ${
-                      req.status === "Pending"
-                        ? "bg-yellow-100 text-yellow-800"
-                        : req.status === "Accepted"
-                        ? "bg-green-100 text-green-800"
-                        : "bg-red-100 text-red-800"
-                    }`}
-                  >
-                    <option value="Pending">Pending</option>
-                    <option value="Accepted">Accepted</option>
-                    <option value="Rejected">Rejected</option>
-                  </select>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
   );
 }
