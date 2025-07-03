@@ -1,10 +1,4 @@
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLeftLong } from '@fortawesome/free-solid-svg-icons'
-import logo from "../assets/images/chelab-logo.png"
-import googleLogo from "../assets/images/Google-logo.png"
-import appleLogo from "../assets/images/apple-logo.png"
-import about from '../data/about';
 
 export default function SignUp() {
     return(
@@ -50,16 +44,7 @@ export default function SignUp() {
               Sign Up
             </button>
         
-            <div className="flex my-[24px]">
-              <span className="px-2 text-gray-400 text-sm">Or</span>
-            </div>
-        
-            <div className="flex justify-center gap-4 h-[32px]">
-              <button className="cursor-pointer border w-[250px] py-2 rounded-full flex items-center justify-center gap-2">
-                <img src={googleLogo} alt="Google" className="w-5 h-5" />
-                <span className="text-xs">Sign in with Google</span>
-              </button>
-            </div>
+            
         
             <p className="text-center text-[14px] text-black mt-6">
               Already have an account? {" "}

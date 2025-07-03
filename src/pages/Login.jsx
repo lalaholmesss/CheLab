@@ -1,6 +1,4 @@
 import { Link } from 'react-router-dom';
-import logo from "../assets/images/chelab-logo.png"
-import googleLogo from "../assets/images/Google-logo.png"
 
 export default function Login() {
     return(
@@ -35,16 +33,7 @@ export default function Login() {
       Login
     </button>
 
-    <div className="flex my-[24px]">
-      <span className="px-2 text-gray-400 text-sm">Or</span>
-    </div>
-
-    <div className="flex justify-center gap-4 h-[32px]">
-      <button className="cursor-pointer border w-[250px] py-2 rounded-full flex items-center justify-center gap-2">
-        <img src={googleLogo} alt="Google" className="w-5 h-5" />
-        <span className="text-xs">Sign in with Google</span>
-      </button>
-    </div>
+    
 
     <p className="text-center text-[14px] text-black mt-6">
       Don't have an account?{" "}
